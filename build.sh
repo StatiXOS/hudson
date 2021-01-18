@@ -2,7 +2,6 @@ echo "--- Sync"
 cd /stx
 rm -rf .repo/local_manifests
 repo sync -d -c --force-sync --no-tags --no-clone-bundle -f -j8
-repo forall -vc "git reset --hard HEAD"
 echo "--- Clean"
 make clean
 make clobber
