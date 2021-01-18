@@ -23,7 +23,7 @@ def main():
             'build': {
                 'env': {
                     'DEVICE': device,
-                    'STATIX_BUILD_TYPE': 'variant',
+                    'STATIX_BUILD_TYPE': variant,
                     'BUILDTYPE': build_type,
                 },
             },
