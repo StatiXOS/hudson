@@ -1,5 +1,5 @@
 echo "--- Sync"
-repo init --depth=1 -u https://github.com/StatiXOS/android_manifest.git -b 11
+cd /stx
 rm -rf .repo/local_manifests
 repo sync -d -c --force-sync --no-tags --no-clone-bundle -f -j8
 repo forall -vc "git reset --hard HEAD"
