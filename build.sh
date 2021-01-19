@@ -1,7 +1,7 @@
 echo "--- Sync"
 cd /stx
 rm -rf .repo/local_manifests
-repo sync -d -c --force-sync --no-tags --no-clone-bundle -f -j8
+repo sync --force-sync --no-clone-bundle --current-branch --no-tags -j$(nproc --all)
 echo "--- Build setup"
 . build/envsetup.sh
 echo "--- Sanitize outdir"
