@@ -2,11 +2,11 @@ echo "--- Sync"
 cd /stx
 rm -rf .repo/local_manifests
 repo sync -d -c --force-sync --no-tags --no-clone-bundle -f -j8
-echo "--- Clean"
-make clean
-make clobber
-echo "--- Build"
+echo "--- Build setup"
 . build/envsetup.sh
+echo "--- Sanitize outdir"
+m installclean
+echo "--- Build"
 lunch statix_$DEVICE-$BUILDTYPE
 m bacon
 echo "--- Upload"
