@@ -18,7 +18,7 @@ def main():
         device, build_type, variant = line.split()
 
         pipeline['steps'].append({
-            'label': '{} {}'.format(device, today.strftime("%Y%m%d")),
+            'label': '{} {} {}'.format(device, variant, today.strftime("%Y%m%d")),
             'trigger': 'build',
             'build': {
                 'env': {
