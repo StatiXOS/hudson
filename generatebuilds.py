@@ -26,6 +26,7 @@ def main():
                     'STATIX_BUILD_TYPE': variant,
                     'BUILDTYPE': build_type,
                 },
+                'branch': "${BUILDKITE_BRANCH}"
             },
         })
     print(yaml.dump(pipeline))
