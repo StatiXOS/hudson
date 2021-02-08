@@ -5,6 +5,8 @@ repo sync --force-sync --no-clone-bundle --current-branch --no-tags -j$(nproc --
 echo "--- Build setup"
 . build/envsetup.sh
 lunch statix_$DEVICE-$BUILDTYPE
+echo "--- Pick"
+if [[ ! -z "${REPOPICK}" ]]; then repopick -f ${REPOPICK}; else echo "No Commits to pick!"; fi
 echo "--- Build"
 m bacon
 
