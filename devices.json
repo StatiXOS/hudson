@@ -3,6 +3,7 @@
     {  "codename": "davinci", "fastbootimages": "false", "lineage_recovery": "false"},
     {  "codename": "fajita", "fastbootimages": "false", "lineage_recovery": "false"},
     {  "codename": "ginkgo", "fastbootimages": "false", "lineage_recovery": "false"},
+    {  "codename": "guacamoleb", "fastbootimages": "false", "lineage_recovery": "false"},
     {  "codename": "hotdogb", "fastbootimages": "true", "lineage_recovery": "true"},
     {  "codename": "mata", "fastbootimages": "false", "lineage_recovery": "true"},
     {  "codename": "TP1803", "fastbootimages": "false", "lineage_recovery": "false"}
