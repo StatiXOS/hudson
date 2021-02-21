@@ -15,28 +15,28 @@ then
 fi
 
 echo "--- Upload Build (OTA Server, then SourceForge)"
-rsync --progress -a --include "statix_$DEVICE-*-$STATIX_BUILD_TYPE.zip" --exclude "*" out/target/product/$DEVICE/ downloads@downloads.statixos.com:/home/downloads/11/$DEVICE
-rsync --progress -a --include "statix_$DEVICE-*-$STATIX_BUILD_TYPE.zip" --exclude "*" out/target/product/$DEVICE/ deletthiskthx@frs.sourceforge.net:/home/pfs/project/statixos/11/$DEVICE/
+rsync --progress -a --include "statix_$DEVICE-*-$STATIX_BUILD_TYPE.zip" --exclude "*" $OUT/ downloads@downloads.statixos.com:/home/downloads/11/$DEVICE
+rsync --progress -a --include "statix_$DEVICE-*-$STATIX_BUILD_TYPE.zip" --exclude "*" $OUT/ deletthiskthx@frs.sourceforge.net:/home/pfs/project/statixos/11/$DEVICE/
 
 echo "--- Upload Boot Image (OTA Server, then SourceForge)"
-mv out/target/product/$DEVICE/boot.img out/target/product/$DEVICE/boot-$DEVICE-$DATE.img
-rsync --progress -a --include "boot-$DEVICE-$DATE.img" --exclude "*" out/target/product/$DEVICE/ downloads@downloads.statixos.com:/home/downloads/11/$DEVICE/bootimages
-rsync --progress -a --include "boot-$DEVICE-$DATE.img" --exclude "*" out/target/product/$DEVICE/ deletthiskthx@frs.sourceforge.net:/home/pfs/project/statixos/11/$DEVICE/bootimages
+mv $OUT/boot.img $OUT/boot-$DEVICE-$DATE.img
+rsync --progress -a --include "boot-$DEVICE-$DATE.img" --exclude "*" $OUT/ downloads@downloads.statixos.com:/home/downloads/11/$DEVICE/bootimages
+rsync --progress -a --include "boot-$DEVICE-$DATE.img" --exclude "*" $OUT/ deletthiskthx@frs.sourceforge.net:/home/pfs/project/statixos/11/$DEVICE/bootimages
 
 if [[ "$FASTBOOTIMAGES" == "true" ]];
 then
     echo "--- Upload Fastbootimages (OTA Server, then SourceForge)"
-    mv out/target/product/$DEVICE/statix_$DEVICE-img-eng.buildkite-agent.zip out/target/product/$DEVICE/statix_$DEVICE-$DATE-img.zip
-    rsync --progress -a --include "statix_$DEVICE-$DATE-img.zip" --exclude "*" out/target/product/$DEVICE/ downloads@downloads.statixos.com:/home/downloads/11/$DEVICE/fastbootimages
-    rsync --progress -a --include "statix_$DEVICE-$DATE-img.zip" --exclude "*" out/target/product/$DEVICE/ deletthiskthx@frs.sourceforge.net:/home/pfs/project/statixos/11/$DEVICE/fastbootimages
+    mv $OUT/statix_$DEVICE-img-eng.buildkite-agent.zip $OUT/statix_$DEVICE-$DATE-img.zip
+    rsync --progress -a --include "statix_$DEVICE-$DATE-img.zip" --exclude "*" $OUT/ downloads@downloads.statixos.com:/home/downloads/11/$DEVICE/fastbootimages
+    rsync --progress -a --include "statix_$DEVICE-$DATE-img.zip" --exclude "*" $OUT/ deletthiskthx@frs.sourceforge.net:/home/pfs/project/statixos/11/$DEVICE/fastbootimages
 fi
 
-if [[ "$RECOVERY" == "true" ]] && [ -f "out/target/product/$DEVICE/recovery.img" ];
+if [[ "$RECOVERY" == "true" ]] && [ -f "$OUT/recovery.img" ];
 then
     echo "--- Upload Recovery (OTA Server, then SourceForge)"
-    mv out/target/product/$DEVICE/recovery.img out/target/product/$DEVICE/recovery-$DEVICE-$DATE.img
-    rsync --progress -a --include "recovery-$DEVICE-$DATE.img" --exclude "*" out/target/product/$DEVICE/ downloads@downloads.statixos.com:/home/downloads/11/$DEVICE/recoveries
-    rsync --progress -a --include "recovery-$DEVICE-$DATE.img" --exclude "*" out/target/product/$DEVICE/ deletthiskthx@frs.sourceforge.net:/home/pfs/project/statixos/11/$DEVICE/recoveries
+    mv $OUT/recovery.img $OUT/recovery-$DEVICE-$DATE.img
+    rsync --progress -a --include "recovery-$DEVICE-$DATE.img" --exclude "*" $OUT/ downloads@downloads.statixos.com:/home/downloads/11/$DEVICE/recoveries
+    rsync --progress -a --include "recovery-$DEVICE-$DATE.img" --exclude "*" $OUT/ deletthiskthx@frs.sourceforge.net:/home/pfs/project/statixos/11/$DEVICE/recoveries
 fi
 
 echo "--- Sanitize outdir (deviceclean)"
