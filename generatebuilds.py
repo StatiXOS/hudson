@@ -27,7 +27,6 @@ def main():
                     'DEVICE': device,
                     'STATIX_BUILD_TYPE': variant,
                     'BUILDTYPE': build_type,
-                    'DATE' : today.strftime("%Y%m%d"),
                     'FASTBOOTIMAGES': fastbootimages,
                     'RECOVERY': recovery,
                 },
