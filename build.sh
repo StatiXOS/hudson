@@ -6,6 +6,7 @@ echo "--- Build setup"
 . build/envsetup.sh
 lunch statix_$DEVICE-$BUILDTYPE
 echo "--- Pick"
+set -e
 if [[ ! -z "${REPOPICK}" ]]; then repopick -f ${REPOPICK}; else echo "No Commits to pick!"; fi
 echo "--- Build"
 m bacon
