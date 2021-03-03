@@ -1,8 +1,5 @@
-echo "--- Sync"
-cd /stx
-rm -rf .repo/local_manifests
-repo sync --force-sync --no-clone-bundle --current-branch --no-tags -j$(nproc --all)
 echo "--- Build setup"
+cd /stx
 . build/envsetup.sh
 lunch statix_$DEVICE-$BUILDTYPE
 echo "--- Pick"

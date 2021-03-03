@@ -13,6 +13,11 @@ def main():
     pipeline = {"steps": []}
     today = datetime.today()
 
+    pipeline['steps'].append({
+        'label': 'Updating mirror and source',
+        'trigger': 'sync',
+        'key': 'update-source'
+    })
     for line in targets.split("\n"):
         if not line or line.startswith("#"):
             continue
@@ -32,6 +37,7 @@ def main():
                 },
                 'branch': "${BUILDKITE_BRANCH}"
             },
+            'depends_on': 'update-source'
         })
     print(yaml.dump(pipeline))
 
