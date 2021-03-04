@@ -7,6 +7,6 @@
     {  "codename": "guacamoleb", "fastbootimages": "false", "lineage_recovery": "false"},
     {  "codename": "hotdogb", "fastbootimages": "true", "lineage_recovery": "true"},
     {  "codename": "mata", "fastbootimages": "false", "lineage_recovery": "true"},
-    {  "codename": "TP1803", "fastbootimages": "false", "lineage_recovery": "false"}
+    {  "codename": "TP1803", "fastbootimages": "false", "lineage_recovery": "true"}
     ]
 }
