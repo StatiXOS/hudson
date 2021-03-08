@@ -6,6 +6,10 @@ echo "--- Pick"
 set -e
 if [[ ! -z "${REPOPICK}" ]]; then repopick -f ${REPOPICK}; else echo "No Commits to pick!"; fi
 echo "--- Build"
+if [[ "$CLEAN" == "true" ]];
+then
+    m clean
+fi
 m bacon
 
 if [[ "$FASTBOOTIMAGES" == "true" ]];
