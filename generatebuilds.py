@@ -14,7 +14,7 @@ def main():
     today = datetime.today()
 
     pipeline['steps'].append({
-        'label': 'Updating mirror and source',
+        'label': 'Update source',
         'trigger': 'sync',
         'key': 'update-source'
     })
